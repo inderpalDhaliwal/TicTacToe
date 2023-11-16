@@ -2,11 +2,14 @@ import java.awt.event.*;
 
 public class TicTacToeListener implements ActionListener, MouseListener, KeyListener {
     private TicTacToePanel ticTacToePanel;
+    private Game game;
+
 
     public TicTacToeListener(TicTacToePanel ticTacToePanel){
         ticTacToePanel.addMouseListener(this);
         ticTacToePanel.addKeyListener(this);
         this.ticTacToePanel = ticTacToePanel;
+        this.game = new Game();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -30,13 +33,41 @@ public class TicTacToeListener implements ActionListener, MouseListener, KeyList
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if(x<333){
+            if(y<333){
+                game.select(1);
+            } else if(y<666){
+                game.select(4);
+            } else{
+                game.select(7);
+            }
+        }
+        else if(x<666){
+            if(y<333){
+                game.select(2);
+            } else if(y<666){
+                game.select(5);
+            } else{
+                game.select(8);
+            }
+        }
+        else{
+            if(y<333){
+                game.select(3);
+            } else if(y<666){
+                game.select(6);
+            } else{
+                game.select(9);
+            }
+        }
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         ticTacToePanel.requestFocusInWindow();
-        System.out.println("Mouse if Focused");
     }
 
     @Override
