@@ -86,7 +86,7 @@ public class Game {  //class
                     System.out.println("shouldnt reach here");
             }
             if (marked.contains(quadrant)) {
-                System.out.println("f*** off");
+                System.out.println("Already Taken Sorry");
                 return false;
             }
             if (turn == 1) {
