@@ -1,18 +1,18 @@
 import java.awt.event.*;
 
-public class TicTacToeListener implements ActionListener, MouseListener, KeyListener {
-    private TicTacToePanel ticTacToePanel;
+public class TicTacToeListener implements ActionListener, MouseListener, KeyListener { // class
+    private TicTacToePanel ticTacToePanel; // class var
     private Game game;
 
 
-    public TicTacToeListener(TicTacToePanel ticTacToePanel){
+    public TicTacToeListener(TicTacToePanel ticTacToePanel){ // constructor
         ticTacToePanel.addMouseListener(this);
         ticTacToePanel.addKeyListener(this);
         this.ticTacToePanel = ticTacToePanel;
-        this.game = new Game();
+        this.game = new Game(ticTacToePanel);
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //methods
 
     }
 
@@ -62,6 +62,7 @@ public class TicTacToeListener implements ActionListener, MouseListener, KeyList
                 game.select(9);
             }
         }
+        ticTacToePanel.repaint();
 
     }
 
